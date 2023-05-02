@@ -10,7 +10,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    steps:        
+    steps:
+    - uses: actions/checkout@v3
     - if: ${{ success() && github.ref == 'refs/heads/main' }}
       id: deploy
       continue-on-error: true
@@ -18,6 +19,7 @@ jobs:
       with:
         api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
         dist_dir: _site
+        cleanup: true
 
     - name: Deploy to Neocities fallback
       if: ${{ steps.deploy.outcome == 'failure' && github.ref == 'refs/heads/main' }}
