@@ -1,0 +1,91 @@
+<!--default.html-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web raft</title>
+</head>    
+<style>
+
+main {
+  max-width: 800px;
+  margin: auto;
+}
+
+code {
+  display: block;
+  padding: 10px;
+  margin: 10px;
+  line-height: 20px;
+  background-color: #f5f5f5;
+  white-space: pre-wrap;
+  border: 1px solid grey;
+} 
+ 
+li {
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+ 
+</style>
+
+<body>
+<main>
+  <p>Hi there! This is a collaborative website. This is just a proof of concept right now, so it is a featureless barren wasteland of clay yet to be moulded into something resembling anything.</p>
+
+  Do you want to contribute and make this into something that's something? Here's how: 
+
+  <h1>Contributing to this website</h1>
+  
+  The code for this website is hosted on <a href="https://github.com/soweli-sina/web-raft">GitHub</a>, and is deployed to <a href="https://neocities.org/site/web-raft">Neocities</a>. In order to contribute to this website, you'll need to make an GitHub account, and do some setup. 
+  
+  The following is a brief draft of a guide on using GitHub to collaborate. The goal is to make this guide as accessible as possible to those with a non-technical background. 
+  
+  <h2>Setting up Git</h2>
+
+  <ol>
+    <li>First, set up your Github account. A guide for doing so can be found <a href="https://kbroman.org/github_tutorial/pages/first_time.html">here</a>.  
+    <ul>
+      <li>If you're unfamiliar with using a terminal/shell to run commands, here's a <a href="https://mmuratarat.github.io/2020-04-01/bash_shell_tutorial">guide</a> that explains it in more depth.
+      <li>I'd recommend downloading <a href="https://gitforwindows.org/">Git BASH</a> if you're on Windows. This also comes with a version of Git with a graphical user interface, which may be easier to use. 
+    </ul>
+  </ol>
+
+  <h2>Website Editing</h2>
+
+  If you are already a collaborator on the GitHub repository, you can follow the following guide to easily make changes. Steps to becoming a collaborator are TBD. 
+  
+  <ol>
+    <li>First, copy the repo from GitHub to your local computer, so you can start making changes. Run the following command in the directory where you want to put the website's code. 
+    <code>git clone git@github.com:soweli-sina/web-raft.git</code>
+    
+    <li>Make changes to any of the files inside the _site directory, including this one!</li>
+
+    <li>Add and commit all the files. Running with <i>-A</i> will add all new files to the repository; if you only want to add some, you can add then individually. 
+    <code>git add -A
+git commit -m "Short message describing what you changed"
+</code></li>
+
+    <li>Push changes to main! Note, someone else may have pushed a change since you started editing, so first you should update your local version of the code with the following:
+    
+    <code>git pull</code>
+
+    At this point, you may encounter a merge conflict, where the changes you made conflict with the changes someone else made. In this case, you can edit the files where these conflicts happen to resolve them, and then add and commit them again. A more detailed guide on how to resolve merge conflicts can be found <a href="https://kbroman.org/github_tutorial/pages/merge_conflicts.html">here</a>.</li>
+    
+    <li>After any merge conflicts are resolved, you can push your branch to main, and the neocities page should update after a few minutes. 
+    
+    <code>git push -u origin your-branch-name</code></li>
+   
+    <li>For any additional changes, repeat steps 3 to 6.
+    
+    <p><b>NOTE</b>: GitHub only provides a limited amount of job execution time for the free plan per month. When you push a change to GitHub, it will execute a job that will push the changes to Neocities, which takes about a minute. As such, please limit the number of times you push in a month, ideally pushing after making a large set of changes.</p></li>
+  </ol>
+ 
+  <p>If you're not a collaborator yet, you can still make changes! To do so you'd have to set up a merge request from a forked version of this repository. A guide on how to do this in general can be found <a href=" https://kbroman.org/github_tutorial/pages/fork.html">here</a>, though a guide specific to this site is still pending. </p>
+ 
+ </main>
+
+</body>
+</html>
