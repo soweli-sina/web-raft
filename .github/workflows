@@ -1,0 +1,27 @@
+name: Build and upload site
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:        
+    - if: ${{ success() && github.ref == 'refs/heads/main' }}
+      id: deploy
+      continue-on-error: true
+      uses: bcomnes/deploy-to-neocities@v1
+      with:
+        api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
+        dist_dir: _site
+
+    - name: Deploy to Neocities fallback
+      if: ${{ steps.deploy.outcome == 'failure' && github.ref == 'refs/heads/main' }}
+      uses: jonchang/deploy-neocities@master
+      with:
+        key: ${{ secrets.NEOCITIES_API_TOKEN }}
+        dir: _site
